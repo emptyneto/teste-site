@@ -1,0 +1,441 @@
+/* Importação de Fontes (Opcional, mas melhora o visual) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-dark: #1a1a2e; /* Azul muito escuro para fundos principais */
+    --secondary-dark: #0f3460; /* Azul escuro para elementos secundários */
+    --accent-color: #e94560; /* Vermelho/Laranja vibrante para destaque */
+    --text-light: #e0e0e0; /* Texto claro para fundos escuros */
+    --text-medium: #a0a0a0; /* Texto cinza claro para detalhes */
+    --border-dark: #0f3460; /* Borda escura */
+    --white-color: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-light); /* Cor do texto geral mais clara */
+    background-color: var(--primary-dark); /* Fundo principal escuro */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent-color); /* Links com cor de destaque */
+}
+
+ul {
+    list-style: none;
+}
+
+/* Header e Navegação */
+header {
+    background: var(--secondary-dark); /* Fundo do cabeçalho secundário escuro */
+    color: var(--white-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4); /* Sombra mais escura */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white-color);
+}
+
+.logo strong {
+    color: var(--accent-color);
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    color: var(--white-color);
+    font-weight: 400;
+    transition: color 0.3s ease;
+    padding: 5px 0;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    background: var(--accent-color);
+    color: var(--white-color);
+    padding: 12px 25px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #c73752; /* Um pouco mais escuro que o accent-color */
+}
+
+/* Seções Gerais */
+section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+section:nth-child(even) { /* Invertendo o fundo para ter contraste */
+    background-color: var(--secondary-dark);
+}
+
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--text-light); /* Título com cor mais clara */
+    position: relative;
+    display: inline-block;
+}
+
+section h2 strong {
+    color: var(--accent-color);
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 3px;
+    background: var(--accent-color);
+    bottom: -10px;
+    left: 20%;
+    border-radius: 5px;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('https://images.unsplash.com/photo-1576153723788-b121696b9943?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+    color: var(--white-color);
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero-content h1 strong {
+    color: var(--accent-color);
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+/* About Section */
+.about p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+    color: var(--text-medium); /* Texto com cor média */
+}
+
+.about strong {
+    color: var(--accent-color); /* Destaque com cor de acento */
+}
+
+/* Services Section */
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.service-item {
+    background: var(--secondary-dark); /* Fundo dos itens de serviço mais escuro */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Sombra mais visível no tema escuro */
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-dark);
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+.service-item h3 {
+    color: var(--accent-color); /* Título do serviço com destaque */
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.service-item p {
+    color: var(--text-light); /* Parágrafo do serviço claro */
+    font-size: 1rem;
+}
+
+/* Blog/Articles Section */
+.article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.article-item {
+    background: var(--secondary-dark); /* Fundo do artigo mais escuro */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-dark);
+}
+
+.article-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+.article-item h3 {
+    color: var(--accent-color); /* Título do artigo com destaque */
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.article-item p {
+    color: var(--text-light); /* Parágrafo do artigo claro */
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.read-more {
+    color: var(--accent-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.read-more:hover {
+    color: var(--text-light); /* Hover mais claro para contraste */
+}
+
+.view-all {
+    margin-top: 40px;
+    font-size: 1.1rem;
+}
+
+.view-all a {
+    color: var(--accent-color);
+}
+
+/* Contact Section */
+.contact {
+    background-color: var(--primary-dark); /* Fundo da seção de contato principal escuro */
+    color: var(--white-color);
+    padding-bottom: 50px;
+}
+
+.contact h2 {
+    color: var(--white-color);
+}
+
+.contact h2::after {
+    background: var(--accent-color);
+}
+
+.contact p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--secondary-dark); /* Fundo do formulário secundário escuro */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5); /* Sombra mais forte */
+    text-align: left;
+    border: 1px solid var(--border-dark);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--accent-color); /* Labels com a cor de destaque */
+    font-weight: 600;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--primary-dark); /* Borda mais escura */
+    background-color: var(--primary-dark); /* Fundo dos inputs escuro */
+    color: var(--text-light); /* Texto dos inputs claro */
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="tel"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color); /* Borda de foco com destaque */
+    box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.2); /* Sombra de foco com destaque */
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.contact-form .btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+}
+
+.contact-info {
+    margin-top: 50px;
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+    color: var(--text-light);
+}
+
+.contact-info strong {
+    color: var(--accent-color);
+}
+
+/* Footer */
+footer {
+    background: var(--primary-dark);
+    color: var(--text-medium); /* Texto do rodapé em cinza médio */
+    padding: 25px 0;
+    text-align: center;
+    border-top: 1px solid var(--accent-color);
+}
+
+footer p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 0 10px 10px 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    section h2 {
+        font-size: 2rem;
+    }
+
+    .service-grid, .article-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+    }
+}
